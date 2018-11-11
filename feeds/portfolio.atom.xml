@@ -1151,15 +1151,49 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Welcome"&gt;Welcome&lt;a class="anchor-link" href="#Welcome"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Hello, and welcome to by blog! I'm Rao Vinnakota, and I'm a senior studying applied Mathematics at Bard College. This blog is meant to serve as a portfolio, as well as a sounding board for my various projects. Writing about my work was an interesting lesson I learned during my internship this summer. It actually got me published in HackerNoon several times, which was very exciting. I'm hoping to continue with that&lt;/p&gt;
-&lt;h1 id="Content"&gt;Content&lt;a class="anchor-link" href="#Content"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Most content is generally going to be one of the following:&lt;/p&gt;
-&lt;h2 id="Classwork:"&gt;Classwork:&lt;a class="anchor-link" href="#Classwork:"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;I'm currently taking Machine Learning and Scientific Computing. We're covering interesting topics in both classes. Writing through the homeworks assigned helps me break down the problem I'm working on. Hopefully readers will find some of my topics interesting.&lt;/p&gt;
-&lt;h2 id="Senior-Project:"&gt;Senior Project:&lt;a class="anchor-link" href="#Senior-Project:"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;A graduation requirement at Bard is the &lt;a href="http://www.bard.edu/undergraduate/curriculum/seniorproject/"&gt;senior project&lt;/a&gt;. It's a year long exploration into a particular topic of choice, and is meant to be a culmination of our time at Bard.&lt;/p&gt;
-&lt;p&gt;My topic has forced me to do extensive research and independent learning. I've found resources scattered across the internet, and I plan to write small tutorials and resource pages for various steps in the senior project.&lt;/p&gt;
-&lt;h2 id="Number-Stories-&amp;amp;-Kaggle:"&gt;Number Stories &amp;amp; Kaggle:&lt;a class="anchor-link" href="#Number-Stories-&amp;amp;-Kaggle:"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Kaggle is an excellent place to practice analytics skills. Obviously a blog exists, but I'm interested in laying out my particular thought process as I advance through kaggle.&lt;/p&gt;
+&lt;h1 id="Portfolio"&gt;Portfolio&lt;a class="anchor-link" href="#Portfolio"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Over the last three summers between courses, internships, and research experiences, I've assembled a portfolio of writings and projects.&lt;/p&gt;
+&lt;h2 id="Published-Writings/Visuals"&gt;Published Writings/Visuals&lt;a class="anchor-link" href="#Published-Writings/Visuals"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="Alpaca"&gt;Alpaca&lt;a class="anchor-link" href="#Alpaca"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In summer 2018, I worked for &lt;a href="https://aplaca.markets"&gt;Alpaca&lt;/a&gt;, a fintech startup in San Mateo. I worked on building a simple robo advisor. Alongside, I started writing through the Alpaca account on my project as well as about algo trading in general.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://hackernoon.com/9-great-tools-for-algo-trading-e0938a6856cd"&gt;9 Great Tools For Algo Trading&lt;/a&gt; A list of backtesters, data providers, and web services for algo traders&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://hackernoon.com/i-am-a-college-student-and-i-built-my-own-robo-advisor-3f31b39dab50"&gt;I'm a College Student and I Built My Own Robo Advisor&lt;/a&gt; A breakdown of the process I used to build my robo advisor on Quantopian's online IDE.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://hackernoon.com/im-a-college-student-and-i-m-still-building-my-robo-advisor-928110fe5bf1"&gt;I'm a College Student and I'm Still Building My Robo Advisor&lt;/a&gt; Part 2 of my robo advisor writing. I moved the robo advisor off of Quantopians online IDE and onto their offline backtester Zipline, and expanded the universe of symbols the robo advisor handled.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://hackernoon.com/data-data-data-11-great-financial-data-vendors-844d2cfce77d"&gt;11 Financial Data Vendors&lt;/a&gt; An article that covers the various levels of data vendors available for an algo trader. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="The-Center-for-the-Study-of-the-Drone"&gt;The Center for the Study of the Drone&lt;a class="anchor-link" href="#The-Center-for-the-Study-of-the-Drone"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In the summer of 2015, I worked as a research assisstant for the &lt;a href="http://dronecenter.bard.edu/"&gt;Bard College Center for the Study of the Drone&lt;/a&gt;. I contributed to the Center's database of FAA commercial exemptions for drone use. Building off of the exemption base, I created several geographic visuals. Both the database and the visuals were published on the Verge.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://dronecenter.bard.edu/the-exemptions-database/"&gt;Database&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dronecenter.bard.edu/mapping-the-drone-industry/"&gt;Visuals&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="GitHub-Repositories"&gt;GitHub Repositories&lt;a class="anchor-link" href="#GitHub-Repositories"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="Classwork"&gt;Classwork&lt;a class="anchor-link" href="#Classwork"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The following repositories are all for various courses from school:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/raovinnakota/Machine-Learning-F18"&gt;Machine-Learning-F18&lt;/a&gt;: Machine Learning takein in the fall of 2018. Covered decision trees, neural networks, supervised/unsupervised learning, regression analysis. All code is (currently) in Python&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/raovinnakota/BioInformatics"&gt;BioInformatics&lt;/a&gt;: Programming in Biology taken in the spring of 2018. Covered various statistical concepts such as classification, image processing, etc. with a biological slant. My final project was building a classifier for breast cancer cell lines&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/raovinnakota/Classifying-Cancer"&gt;Classifying Cancer&lt;/a&gt;: An in-progress extension of the final to add a web interface to my final project using Heroku. &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/raovinnakota/Fantasy-Baseball-Helper"&gt;Fantasy-Baseball-Helper&lt;/a&gt;: The final project from Object-Oriented-Programming. Forms fantasy baseball team based on team-building criteria. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="42"&gt;42&lt;a class="anchor-link" href="#42"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;During my time off of school, I spent about 4-5 months at 42 Silicon Valley. Started originally by Xavier Niel, 42 is a tuition-free coding academy provided you pass their entrance exams. It's a project-based curriculum.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/raovinnakota/42-piscine"&gt;42-piscine&lt;/a&gt;: The piscine is an intensive 4 week test period with daily coding exercises in C.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/raovinnakota/libft"&gt;libft&lt;/a&gt;: A library of function written in C. Some functions are original, and other functions are recreations of existing functions such as strcpy, strlen, etc. &lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/raovinnakota/FdF"&gt;FdF&lt;/a&gt;: A graphics project creating 3D wireframe images from integer maps in text files&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/raovinnakota/fract-ol"&gt;Fract-ol&lt;/a&gt;: Another graphics project that recreated famous fractal images such as the Serpienski Carpet, Julia Set, and Mandelbrot set. &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
 &lt;/div&gt;
  
 
