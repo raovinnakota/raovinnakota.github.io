@@ -23,17 +23,17 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://raovinnakota.github.io/portfolio.html">Rao Vinnakota's Portfolio</a></h1>
+                    <h1 class="entry-title"><a href="https://raovinnakota.github.io/senior_project_00.html">Senior Project Overview</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2018-11-11T16:05:00-08:00">
-                Published: Sun 11 November 2018
+        <abbr class="published" title="2018-11-13T11:03:00-08:00">
+                Published: Tue 13 November 2018
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="https://raovinnakota.github.io/author/rao-vinnakota.html">Rao Vinnakota</a>
         </address>
-<p>In <a href="https://raovinnakota.github.io/category/portfolio.html">Portfolio</a>.</p>
-<p>tags: <a href="https://raovinnakota.github.io/tag/portfolio-rao-vinnakota.html">portfolio Rao Vinnakota</a> </p>
+<p>In <a href="https://raovinnakota.github.io/category/blog.html">blog</a>.</p>
+<p>tags: <a href="https://raovinnakota.github.io/tag/python.html">python</a> <a href="https://raovinnakota.github.io/tag/blog.html">blog</a> <a href="https://raovinnakota.github.io/tag/senior-project.html">Senior Project</a> </p>
 </footer><!-- /.post-info --><style type="text/css">/*!
 *
 * IPython notebook
@@ -1186,33 +1186,27 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Portfolio">Portfolio<a class="anchor-link" href="#Portfolio">&#182;</a></h1><p>Over the last three summers between courses, internships, and research experiences, I've assembled a portfolio of writings and projects.</p>
-<h2 id="Published-Writings/Visuals">Published Writings/Visuals<a class="anchor-link" href="#Published-Writings/Visuals">&#182;</a></h2><h3 id="Alpaca">Alpaca<a class="anchor-link" href="#Alpaca">&#182;</a></h3><p>In summer 2018, I worked for <a href="https://aplaca.markets">Alpaca</a>, a fintech startup in San Mateo. I worked on building a simple robo advisor. Alongside, I started writing through the Alpaca account on my project as well as about algo trading in general.</p>
+<h1 id="The-Senior-Project">The Senior Project<a class="anchor-link" href="#The-Senior-Project">&#182;</a></h1><p>The senior project is the culmination of my undergraduate career. It's a year-long exploration into a topic or idea, and gives students a taste of undergraduate research. I personally, am exploring the relationship twitter sentiment and voting trends:</p>
+<h1 id="Political-Polling">Political Polling<a class="anchor-link" href="#Political-Polling">&#182;</a></h1><p>Polling is a key part of every political campaign. The basic intent is to find out how many people prefer a certain candidate. More complex polls ask questions hoping to profile the voter. Candidates use polls and the profiles polls generate to make key campaign decisions.</p>
+<p>Most pollsters use phone banking to gather information, but use different questions to create different polling models. There’s reason to believe that this method may not present the complete picture it once did due to several factors - <a href="https://www.cdc.gov/nchs/data/nhis/earlyrelease/wireless201705.pdf">less landline usage</a>, a <a href="http://www.pewresearch.org/fact-tank/2018/04/03/millennials-approach-baby-boomers-as-largest-generation-in-u-s-electorate/">younger and more active electorate</a>, and the <a href="http://files.shareholder.com/downloads/AMDA-2F526X/6351299748x0x982956/287E1B9D-2342-4735-9A8E-D0DA7A614CB1/Q2_2018_Slide_Presentation.pdf">rise of social media</a>. Social media especially presents opinions from a different audience than the traditional pollster reaches.</p>
+<h1 id="Twitter-and-Sentiment-Analysis">Twitter and Sentiment Analysis<a class="anchor-link" href="#Twitter-and-Sentiment-Analysis">&#182;</a></h1><p>Twitter started as a microblogging platform in 2006. Users on Twitter post tweets, which are limited to 280 characters. Posts on twitter widely vary in topic, creating a unique network, referred to colloquially as the Twittersphere.</p>
+<p>Social media has become an important forum for political discourse, and Twitter has been no exception. Notably, President Trump uses Twitter for official White House business and used it extensively during his campaign.</p>
+<p>Twitter’s low threshold for posting and short posts result in Tweets that offer honest opinions. These opinions are a good look into reaction and thoughts of a large population. With over 500 million tweets a day, it’s impossible for a single human or even a group of human to comb through each tweet. But with the Twitter API, it’s possible to process the vast number of tweets that a human can’t.</p>
+<p>Traditionally, computers could log keywords, figure out word usage, and generally log quantitative information about text. To process opinions, it’s important to interpret qualitative information from the tweet like intent, support, etc. I will use sentiment analysis, a natural language processing technique to read positive, negative, or neutral sentiment.</p>
+<p>With the source of information and the tools available it is feasible to evaluate large portions of the opinions available on social media.</p>
+<h1 id="My-Proposed-Process">My Proposed Process<a class="anchor-link" href="#My-Proposed-Process">&#182;</a></h1><p>The process will happen in three steps:</p>
 <ol>
-<li><a href="https://hackernoon.com/9-great-tools-for-algo-trading-e0938a6856cd">9 Great Tools For Algo Trading</a> A list of backtesters, data providers, and web services for algo traders</li>
-<li><a href="https://hackernoon.com/i-am-a-college-student-and-i-built-my-own-robo-advisor-3f31b39dab50">I'm a College Student and I Built My Own Robo Advisor</a> A breakdown of the process I used to build my robo advisor on Quantopian's online IDE.</li>
-<li><a href="https://hackernoon.com/im-a-college-student-and-i-m-still-building-my-robo-advisor-928110fe5bf1">I'm a College Student and I'm Still Building My Robo Advisor</a> Part 2 of my robo advisor writing. I moved the robo advisor off of Quantopians online IDE and onto their offline backtester Zipline, and expanded the universe of symbols the robo advisor handled.</li>
-<li><a href="https://hackernoon.com/data-data-data-11-great-financial-data-vendors-844d2cfce77d">11 Financial Data Vendors</a> An article that covers the various levels of data vendors available for an algo trader. </li>
+<li>Building a tweet streamer to “listen” to tweets based on keyword</li>
+<li>Running sentiment analysis on the tweets that are scraped</li>
+<li>Using sentiment and keywords to draw correlation with voting tendencies</li>
 </ol>
-<h3 id="The-Center-for-the-Study-of-the-Drone">The Center for the Study of the Drone<a class="anchor-link" href="#The-Center-for-the-Study-of-the-Drone">&#182;</a></h3><p>In the summer of 2015, I worked as a research assisstant for the <a href="http://dronecenter.bard.edu/">Bard College Center for the Study of the Drone</a>. I contributed to the Center's database of FAA commercial exemptions for drone use. Building off of the exemption base, I created several geographic visuals. Both the database and the visuals were published on the Verge.</p>
-<ul>
-<li><a href="http://dronecenter.bard.edu/the-exemptions-database/">Database</a></li>
-<li><a href="http://dronecenter.bard.edu/mapping-the-drone-industry/">Visuals</a></li>
-</ul>
-<h2 id="GitHub-Repositories">GitHub Repositories<a class="anchor-link" href="#GitHub-Repositories">&#182;</a></h2><h3 id="Classwork">Classwork<a class="anchor-link" href="#Classwork">&#182;</a></h3><p>The following repositories are all for various courses from school:</p>
-<ul>
-<li><a href="https://github.com/raovinnakota/Machine-Learning-F18">Machine-Learning-F18</a>: Machine Learning takein in the fall of 2018. Covered decision trees, neural networks, supervised/unsupervised learning, regression analysis. All code is (currently) in Python</li>
-<li><a href="https://github.com/raovinnakota/BioInformatics">BioInformatics</a>: Programming in Biology taken in the spring of 2018. Covered various statistical concepts such as classification, image processing, etc. with a biological slant. My final project was building a classifier for breast cancer cell lines</li>
-<li><a href="https://github.com/raovinnakota/Classifying-Cancer">Classifying Cancer</a>: An in-progress extension of the final to add a web interface to my final project using Heroku. </li>
-<li><a href="https://github.com/raovinnakota/Fantasy-Baseball-Helper">Fantasy-Baseball-Helper</a>: The final project from Object-Oriented-Programming. Forms fantasy baseball team based on team-building criteria. </li>
-</ul>
-<h3 id="42">42<a class="anchor-link" href="#42">&#182;</a></h3><p>During my time off of school, I spent about 4-5 months at 42 Silicon Valley. Started originally by Xavier Niel, 42 is a tuition-free coding academy provided you pass their entrance exams. It's a project-based curriculum.</p>
-<ul>
-<li><a href="https://github.com/raovinnakota/42-piscine">42-piscine</a>: The piscine is an intensive 4 week test period with daily coding exercises in C.</li>
-<li><a href="https://github.com/raovinnakota/libft">libft</a>: A library of function written in C. Some functions are original, and other functions are recreations of existing functions such as strcpy, strlen, etc. </li>
-<li><a href="https://github.com/raovinnakota/FdF">FdF</a>: A graphics project creating 3D wireframe images from integer maps in text files</li>
-<li><a href="https://github.com/raovinnakota/fract-ol">Fract-ol</a>: Another graphics project that recreated famous fractal images such as the Serpienski Carpet, Julia Set, and Mandelbrot set. </li>
-</ul>
+<p>The data collection process:
+<img src = "data_collection.png">
+There are two ways to access tweets by people. The first is to “scrape” twitter.com, which means to access the website and physically copy the tweets seen. It’s a method that’s inefficient and tiresome. The second is to use the Twitter API and build a stream that listens to tweets with certain keywords. The stream will load tweets into a database and create a permanent data set test and analyze throughout the year.</p>
+<p>The midterm elections are on November 6th and the window to collect tweets is small. It’s important to build a scalable pipeline to collect tweets by October 1st, and then collect a month of data before the elections themselves.</p>
+<p>Sentiment analysis is a machine learning process that picks out keywords to read intent behind a statement. Each statement can be evaluated to have a negative, neutral, or positive sentiment.</p>
+<p>There are a variety of sentiment analysis tools available on the internet. Both Amazon’s AWS and Microsoft’s Azure have one. As of right now, I’m interested in using a tool VADER, which is built specifically for social media. VADER is able to recognize emoji’s as well as balance multiple expressed sentiments in a single piece of text.</p>
+<p>From the analyzed texts, we can draw correlations between sentiment about topics and voting patterns and public polling. The overarching goal of the project is to aid conventional pollsters by providing information from a different information source.</p>
 
 </div>
 </div>
@@ -1257,23 +1251,23 @@ h6:hover .anchor-link {
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="https://raovinnakota.github.io/senior_project_00.html" rel="bookmark"
-                           title="Permalink to Senior Project Overview">Senior Project Overview</a></h1>
+                    <h1><a href="https://raovinnakota.github.io/portfolio.html" rel="bookmark"
+                           title="Permalink to Rao Vinnakota's Portfolio">Rao Vinnakota's Portfolio</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2018-11-09T20:00:00-08:00">
-                Published: Fri 09 November 2018
+        <abbr class="published" title="2018-11-11T16:05:00-08:00">
+                Published: Sun 11 November 2018
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="https://raovinnakota.github.io/author/rao-vinnakota.html">Rao Vinnakota</a>
         </address>
-<p>In <a href="https://raovinnakota.github.io/category/blog.html">blog</a>.</p>
-<p>tags: <a href="https://raovinnakota.github.io/tag/python.html">python</a> <a href="https://raovinnakota.github.io/tag/blog.html">blog</a> <a href="https://raovinnakota.github.io/tag/senior-project.html">Senior Project</a> </p>
-</footer><!-- /.post-info -->                <p>An overview of my senior thesis</p>
-                <a class="readmore" href="https://raovinnakota.github.io/senior_project_00.html">read more</a>
+<p>In <a href="https://raovinnakota.github.io/category/portfolio.html">Portfolio</a>.</p>
+<p>tags: <a href="https://raovinnakota.github.io/tag/portfolio-rao-vinnakota.html">portfolio Rao Vinnakota</a> </p>
+</footer><!-- /.post-info -->                <p>A portfolio of my projects and writings</p>
+                <a class="readmore" href="https://raovinnakota.github.io/portfolio.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
