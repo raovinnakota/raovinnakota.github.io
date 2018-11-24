@@ -23,10 +23,10 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="https://raovinnakota.github.io/senior_project_00.html">Senior Project Overview</a></h1>
+                    <h1 class="entry-title"><a href="https://raovinnakota.github.io/senior_project_01.html">Senior Project Overview</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2018-11-13T11:03:00-08:00">
-                Published: Tue 13 November 2018
+        <abbr class="published" title="2018-11-18T17:00:00-08:00">
+                Published: Sun 18 November 2018
         </abbr>
 
         <address class="vcard author">
@@ -1186,30 +1186,198 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-Senior-Project">The Senior Project<a class="anchor-link" href="#The-Senior-Project">&#182;</a></h1><p>The senior project is the culmination of my undergraduate career. It's a year-long exploration into a topic or idea, and gives students a taste of undergraduate research. I personally, am exploring the relationship twitter sentiment and voting trends:</p>
-<h1 id="Political-Polling">Political Polling<a class="anchor-link" href="#Political-Polling">&#182;</a></h1><p>Polling is a key part of every political campaign. The basic intent is to find out how many people prefer a certain candidate. More complex polls ask questions hoping to profile the voter. Candidates use polls and the profiles polls generate to make key campaign decisions.</p>
-<p>Most pollsters use phone banking to gather information, but use different questions to create different polling models. There’s reason to believe that this method may not present the complete picture it once did due to several factors - <a href="https://www.cdc.gov/nchs/data/nhis/earlyrelease/wireless201705.pdf">less landline usage</a>, a <a href="http://www.pewresearch.org/fact-tank/2018/04/03/millennials-approach-baby-boomers-as-largest-generation-in-u-s-electorate/">younger and more active electorate</a>, and the <a href="http://files.shareholder.com/downloads/AMDA-2F526X/6351299748x0x982956/287E1B9D-2342-4735-9A8E-D0DA7A614CB1/Q2_2018_Slide_Presentation.pdf">rise of social media</a>. Social media especially presents opinions from a different audience than the traditional pollster reaches.</p>
-<h1 id="Twitter-and-Sentiment-Analysis">Twitter and Sentiment Analysis<a class="anchor-link" href="#Twitter-and-Sentiment-Analysis">&#182;</a></h1><p>Twitter started as a microblogging platform in 2006. Users on Twitter post tweets, which are limited to 280 characters. Posts on twitter widely vary in topic, creating a unique network, referred to colloquially as the Twittersphere.</p>
-<p>Social media has become an important forum for political discourse, and Twitter has been no exception. Notably, President Trump uses Twitter for official White House business and used it extensively during his campaign.</p>
-<p>Twitter’s low threshold for posting and short posts result in Tweets that offer honest opinions. These opinions are a good look into reaction and thoughts of a large population. With over 500 million tweets a day, it’s impossible for a single human or even a group of human to comb through each tweet. But with the Twitter API, it’s possible to process the vast number of tweets that a human can’t.</p>
-<p>Traditionally, computers could log keywords, figure out word usage, and generally log quantitative information about text. To process opinions, it’s important to interpret qualitative information from the tweet like intent, support, etc. I will use sentiment analysis, a natural language processing technique to read positive, negative, or neutral sentiment.</p>
-<p>With the source of information and the tools available it is feasible to evaluate large portions of the opinions available on social media.</p>
-<h1 id="My-Proposed-Process">My Proposed Process<a class="anchor-link" href="#My-Proposed-Process">&#182;</a></h1><p>The process will happen in three steps:</p>
+<h1 id="Gathering-Data">Gathering Data<a class="anchor-link" href="#Gathering-Data">&#182;</a></h1><p>The crucial part to my thesis is to have a viable data set to work with. In this particular case, the data set is tweets to run through a sentiment analyzer. Builing the data set has two parts:</p>
 <ol>
-<li>Building a tweet streamer to “listen” to tweets based on keyword</li>
-<li>Running sentiment analysis on the tweets that are scraped</li>
-<li>Using sentiment and keywords to draw correlation with voting tendencies</li>
+<li>Creating a twitter stream</li>
+<li>Building a databse of tweets fromt the stream</li>
 </ol>
-<p>The data collection process:
-<img src = "data_collection.png">
-There are two ways to access tweets by people. The first is to “scrape” twitter.com, which means to access the website and physically copy the tweets seen. It’s a method that’s inefficient and tiresome. The second is to use the Twitter API and build a stream that listens to tweets with certain keywords. The stream will load tweets into a database and create a permanent data set test and analyze throughout the year.</p>
-<p>The midterm elections are on November 6th and the window to collect tweets is small. It’s important to build a scalable pipeline to collect tweets by October 1st, and then collect a month of data before the elections themselves.</p>
-<p>Sentiment analysis is a machine learning process that picks out keywords to read intent behind a statement. Each statement can be evaluated to have a negative, neutral, or positive sentiment.</p>
-<p>There are a variety of sentiment analysis tools available on the internet. Both Amazon’s AWS and Microsoft’s Azure have one. As of right now, I’m interested in using a tool VADER, which is built specifically for social media. VADER is able to recognize emoji’s as well as balance multiple expressed sentiments in a single piece of text.</p>
-<p>From the analyzed texts, we can draw correlations between sentiment about topics and voting patterns and public polling. The overarching goal of the project is to aid conventional pollsters by providing information from a different information source.</p>
+<p>I ran both the stream and the database on a remote vm running Ubuntu Server 16.04</p>
+<h2 id="Building-a-Twitter-Stream">Building a Twitter Stream<a class="anchor-link" href="#Building-a-Twitter-Stream">&#182;</a></h2><p>Twitter has a cap on the number of historical tweets you can pull, and it's search function automatically promotes the tweets that are higher ranked. On the other hand, the stream will gather all tweets with the keywords you're interested in regardless of interaction, popularity, etc.</p>
+<h3 id="Setup">Setup<a class="anchor-link" href="#Setup">&#182;</a></h3><p>I ran the steram and the database on a remote server, but the same setup can be used locally given you're working on a UNIX system. Packages your computer will need:</p>
+<ul>
+<li>python3</li>
+<li>python3-pip</li>
+</ul>
+<p>I used Twitter's API <a href="http://docs.tweepy.org/en/v3.5.0/index.html">Tweepy</a>. You can use pip to install it for python use.</p>
+<p>Besides installing Tweepy, I needed to register myself as a Twitter Developer and create an application. The application provides me with an API key which then allows me to make a call to build my stream. You can register as a developer and</p>
+<h3 id="Running-The-Stream:">Running The Stream:<a class="anchor-link" href="#Running-The-Stream:">&#182;</a></h3><p>This is the code to run a stream:</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tweepy</span> <span class="k">import</span> <span class="n">Stream</span>
+<span class="kn">from</span> <span class="nn">tweepy</span> <span class="k">import</span> <span class="n">OAuthHandler</span>
+<span class="kn">from</span> <span class="nn">tweepy.streaming</span> <span class="k">import</span> <span class="n">StreamListener</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">ckey</span> <span class="o">=</span> <span class="s2">&quot;pF5W6BaHFteEYdkq38cgZ755g&quot;</span>
+<span class="n">csecret</span> <span class="o">=</span> <span class="s2">&quot;AwnBHQTmvVr6cMSYKm89vQOXMO3sPyoGvhXMaow3zlg2G74vLq&quot;</span>
+<span class="n">atoken</span> <span class="o">=</span> <span class="s2">&quot;2646419088-gtzEn525GUUtTlwpegdZGd8dGLWl8m2IGq9jk9y&quot;</span>
+<span class="n">asecret</span> <span class="o">=</span> <span class="s2">&quot;iQbg8ZfJ8KkI06n0lwkCVVprtkzsIp6h1RMXP5LN3Z6o2&quot;</span>
+
+<span class="n">keywords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#ThanksgivingFootball&quot;</span><span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">StreamListener</span><span class="p">(</span><span class="n">StreamListener</span><span class="p">):</span>
+    <span class="c1">#This is a class provided by tweepy to access the Twitter Streaming API.</span>
+
+    <span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Called initially to connect to the Streaming API</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are now connected to the streaming API.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status_code</span><span class="p">):</span>
+        <span class="c1"># On error - if an error occurs, display the error / status code</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;An Error has occured: &#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">status_code</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">on_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="c1">#This is the meat of the script...it connects to your mongoDB and stores the tweet</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># Decode the JSON from Twitter</span>
+            <span class="n">datajson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+            <span class="c1">#grab the &#39;created_at&#39; data from the Tweet to use for display</span>
+            <span class="n">created_at</span> <span class="o">=</span> <span class="n">datajson</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span>
+
+            <span class="c1">#print out a message to the screen that we have collected a tweet</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tweet collected at &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">created_at</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">datajson</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+           <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+
+<span class="n">auth</span> <span class="o">=</span> <span class="n">OAuthHandler</span><span class="p">(</span><span class="n">ckey</span><span class="p">,</span> <span class="n">csecret</span><span class="p">)</span>
+<span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">atoken</span><span class="p">,</span> <span class="n">asecret</span><span class="p">)</span>
+<span class="n">keywords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#midterms&quot;</span><span class="p">,</span> <span class="s2">&quot;#vote&quot;</span><span class="p">,</span> <span class="s2">&quot;#bluewave&quot;</span><span class="p">,</span> <span class="s2">&quot;#redwave&quot;</span><span class="p">,</span> <span class="s2">&quot;#democrats&quot;</span><span class="p">,</span> <span class="s2">&quot;#elections&quot;</span><span class="p">,</span> <span class="s2">&quot;#gop&quot;</span><span class="p">,</span> <span class="s2">&quot;#usa&quot;</span><span class="p">]</span>
+<span class="n">twitterStream</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">StreamListener</span><span class="p">())</span>
+<span class="n">twitterStream</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">keywords</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The code is source from the tweepy documentation found. I worked off a baseline, and do any actual tweet manipulation-like insterting them into a database-in the on_data function. The data variable is a dictionary, which stores the tweet itself along with various other metrics</p>
+<p>The keywords that the filter is listening for are in the keywords list. If the keywords are separated by commas, the filter will find tweets containing keyword1 OR keyword2. If they're separated by a space, the filter will find tweets with keyword1 AND keyword 2.</p>
+<p>Right now, the tweets are just being printed on the console. The next part is building the database to store the streamed tweets.</p>
+<h2 id="Building-the-Database">Building the Database<a class="anchor-link" href="#Building-the-Database">&#182;</a></h2><p>I decided to use mongodb to store my tweets. Converting the tweets from dictionary to json is simple in Python, and it's then easy to stuff in a mongodb database.</p>
+<h3 id="Setup">Setup<a class="anchor-link" href="#Setup">&#182;</a></h3><p>To set up mongo on your server, follow the instructions for your operating system <a href="https://docs.mongodb.com/manual/administration/install-community/">here</a>. Use pip to install the pymongo client.</p>
+<p>To get ready to stream start the mongod daemon with the command <code>mongod</code>.</p>
+<h3 id="Inserting-Tweets-to-Database">Inserting Tweets to Database<a class="anchor-link" href="#Inserting-Tweets-to-Database">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tweepy</span> <span class="k">import</span> <span class="n">Stream</span>
+<span class="kn">from</span> <span class="nn">tweepy</span> <span class="k">import</span> <span class="n">OAuthHandler</span>
+<span class="kn">from</span> <span class="nn">tweepy.streaming</span> <span class="k">import</span> <span class="n">StreamListener</span>
+<span class="kn">from</span> <span class="nn">pymongo</span> <span class="k">import</span> <span class="n">MongoClient</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+
+<span class="n">MONGO_HOST</span><span class="o">=</span> <span class="s1">&#39;mongodb://localhost/miscdb&#39;</span>  <span class="c1"># assuming you have mongoDB installed locally</span>
+                                             <span class="c1"># and a database called &#39;twitterdb&#39;</span>
+<span class="n">ckey</span> <span class="o">=</span> <span class="s2">&quot;pF5W6BaHFteEYdkq38cgZ755g&quot;</span>
+<span class="n">csecret</span> <span class="o">=</span> <span class="s2">&quot;AwnBHQTmvVr6cMSYKm89vQOXMO3sPyoGvhXMaow3zlg2G74vLq&quot;</span>
+<span class="n">atoken</span> <span class="o">=</span> <span class="s2">&quot;2646419088-gtzEn525GUUtTlwpegdZGd8dGLWl8m2IGq9jk9y&quot;</span>
+<span class="n">asecret</span> <span class="o">=</span> <span class="s2">&quot;iQbg8ZfJ8KkI06n0lwkCVVprtkzsIp6h1RMXP5LN3Z6o2&quot;</span>
+
+<span class="k">class</span> <span class="nc">StreamListener</span><span class="p">(</span><span class="n">StreamListener</span><span class="p">):</span>
+    <span class="c1">#This is a class provided by tweepy to access the Twitter Streaming API.</span>
+
+    <span class="k">def</span> <span class="nf">on_connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Called initially to connect to the Streaming API</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are now connected to the streaming API.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status_code</span><span class="p">):</span>
+        <span class="c1"># On error - if an error occurs, display the error / status code</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;An Error has occured: &#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">status_code</span><span class="p">))</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">on_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="c1">#This is the meat of the script...it connects to your mongoDB and stores the tweet</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">client</span> <span class="o">=</span> <span class="n">MongoClient</span><span class="p">(</span><span class="n">MONGO_HOST</span><span class="p">)</span>
+
+            <span class="c1"># Use twitterdb database. If it doesn&#39;t exist, it will be created.</span>
+            <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">miscdb</span>
+
+            <span class="c1"># Decode the JSON from Twitter</span>
+            <span class="n">datajson</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+            <span class="c1">#grab the &#39;created_at&#39; data from the Tweet to use for display</span>
+            <span class="n">created_at</span> <span class="o">=</span> <span class="n">datajson</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span>
+
+            <span class="c1">#print out a message to the screen that we have collected a tweet</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tweet collected at &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">created_at</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">datajson</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">])</span>
+
+            <span class="c1">#insert the data into the mongoDB into a collection called twitter_search</span>
+            <span class="c1">#if twitter_search doesn&#39;t exist, it will be created.</span>
+            <span class="n">db</span><span class="o">.</span><span class="n">misc</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">datajson</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+           <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+
+<span class="n">auth</span> <span class="o">=</span> <span class="n">OAuthHandler</span><span class="p">(</span><span class="n">ckey</span><span class="p">,</span> <span class="n">csecret</span><span class="p">)</span>
+<span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">atoken</span><span class="p">,</span> <span class="n">asecret</span><span class="p">)</span>
+<span class="c1">#input = input(&quot;Which districts would you like to observe? Please separate districts by a comma&quot;)</span>
+<span class="c1">#keywords = list(input.split(&#39;,&#39;))</span>
+<span class="c1">#keywords = [&quot;Antonio Delgado&quot;, &quot;John Faso&quot;, &quot;NY19&quot;, &quot;@DelgadoforNY19&quot;, &quot;@RepJohnFaso&quot;]</span>
+<span class="n">keywords</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#midterms&quot;</span><span class="p">,</span> <span class="s2">&quot;#vote&quot;</span><span class="p">,</span> <span class="s2">&quot;#bluewave&quot;</span><span class="p">,</span> <span class="s2">&quot;#redwave&quot;</span><span class="p">,</span> <span class="s2">&quot;#democrats&quot;</span><span class="p">,</span> <span class="s2">&quot;#elections&quot;</span><span class="p">,</span> <span class="s2">&quot;#gop&quot;</span><span class="p">,</span> <span class="s2">&quot;#usa&quot;</span><span class="p">]</span>
+<span class="n">twitterStream</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">(</span><span class="n">auth</span><span class="p">,</span> <span class="n">StreamListener</span><span class="p">())</span>
+<span class="n">twitterStream</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">keywords</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In some cases - hosting your database on a different server - the mongo database will be on the local host. Like I mentioned earlier, the database insertion happens in the on_data function.</p>
+<p>The pymongo client is initialized with the mongo host. The line <code>db = client.miscdb</code> declares the specific database for the tweets. If miscdb doesn't exist, the mongod deamon will create the database for you. Make sure that the database name here matches the database name outlined in MONGO_HOST. Last, the tweet is inserted into a collection <code>misc</code>. Like with the database, if the collection doesn't exist, it's created.</p>
+<p>The above code will collect and store tweets of keywords you choose. Make sure that the mongod daemon is running.</p>
+<h3 id="Explore-Your-Database">Explore Your Database<a class="anchor-link" href="#Explore-Your-Database">&#182;</a></h3><p>I wanted to see the tweets I had collected. To do that, I used the mongo shell.</p>
+<p>Once the mongod daemon is running, you can start the shell using the command <code>mongo</code>. To see all databases on the server, use the command <code>show dbs</code>. If the stream worked, the db you created will be listed. To see specific stats, switch the said database using <code>use &lt;dbname&gt;</code>. Then, use <code>db.stats()</code>. The command will show you a variety of stats including total items in the database.</p>
+<p>To see specific tweets, use the find command. To list all tweets, <code>db.&lt;collection_name&gt;.find()</code> will work. To find specific tweets, the search parameter will go in the parentheses.</p>
+<h2 id="Ensuring-the-Stream-Doesn't-Time-Out">Ensuring the Stream Doesn't Time Out<a class="anchor-link" href="#Ensuring-the-Stream-Doesn't-Time-Out">&#182;</a></h2><p>Both Python and Mongod will time out. Since I was collecting tweets over weeks at a time, it was irritating to repeatedly check on the stream to see if it needed to be restarted.</p>
+<p>Mongod:
+<code>mongod --fork --logpath /var/log/mongod.log</code></p>
+<p>Python:
+<code>setsid python3 &lt;path_to_file&gt; &lt; /dev/zero &amp;&gt; log.txt &amp;</code></p>
+<p>To ensure the scripts are running, use the command <code>ps -aux | grep python</code>. If running, the scripts will be listed in the output. To know that the mongod server is still running, try running mongo. If the connection is refused, it's a sign that the mongod daemon isn't running.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
  
 
@@ -1244,6 +1412,34 @@ There are two ways to access tweets by people. The first is to “scrape” twit
 </script>
                 </article>
             </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="https://raovinnakota.github.io/senior_project_00.html" rel="bookmark"
+                           title="Permalink to Senior Project Overview">Senior Project Overview</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-11-13T11:03:00-08:00">
+                Published: Tue 13 November 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="https://raovinnakota.github.io/author/rao-vinnakota.html">Rao Vinnakota</a>
+        </address>
+<p>In <a href="https://raovinnakota.github.io/category/blog.html">blog</a>.</p>
+<p>tags: <a href="https://raovinnakota.github.io/tag/python.html">python</a> <a href="https://raovinnakota.github.io/tag/blog.html">blog</a> <a href="https://raovinnakota.github.io/tag/senior-project.html">Senior Project</a> </p>
+</footer><!-- /.post-info -->                <p>An overview of my senior thesis</p>
+                <a class="readmore" href="https://raovinnakota.github.io/senior_project_00.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
