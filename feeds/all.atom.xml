@@ -4,124 +4,9 @@
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI escape sequences */
-/* The color values are a mix of
-   http://www.xcolors.net/dl/baskerville-ivorylight and
-   http://www.xcolors.net/dl/euphrasia */
-.ansi-black-fg {
-  color: #3E424D;
-}
-.ansi-black-bg {
-  background-color: #3E424D;
-}
-.ansi-black-intense-fg {
-  color: #282C36;
-}
-.ansi-black-intense-bg {
-  background-color: #282C36;
-}
-.ansi-red-fg {
-  color: #E75C58;
-}
-.ansi-red-bg {
-  background-color: #E75C58;
-}
-.ansi-red-intense-fg {
-  color: #B22B31;
-}
-.ansi-red-intense-bg {
-  background-color: #B22B31;
-}
-.ansi-green-fg {
-  color: #00A250;
-}
-.ansi-green-bg {
-  background-color: #00A250;
-}
-.ansi-green-intense-fg {
-  color: #007427;
-}
-.ansi-green-intense-bg {
-  background-color: #007427;
-}
-.ansi-yellow-fg {
-  color: #DDB62B;
-}
-.ansi-yellow-bg {
-  background-color: #DDB62B;
-}
-.ansi-yellow-intense-fg {
-  color: #B27D12;
-}
-.ansi-yellow-intense-bg {
-  background-color: #B27D12;
-}
-.ansi-blue-fg {
-  color: #208FFB;
-}
-.ansi-blue-bg {
-  background-color: #208FFB;
-}
-.ansi-blue-intense-fg {
-  color: #0065CA;
-}
-.ansi-blue-intense-bg {
-  background-color: #0065CA;
-}
-.ansi-magenta-fg {
-  color: #D160C4;
-}
-.ansi-magenta-bg {
-  background-color: #D160C4;
-}
-.ansi-magenta-intense-fg {
-  color: #A03196;
-}
-.ansi-magenta-intense-bg {
-  background-color: #A03196;
-}
-.ansi-cyan-fg {
-  color: #60C6C8;
-}
-.ansi-cyan-bg {
-  background-color: #60C6C8;
-}
-.ansi-cyan-intense-fg {
-  color: #258F8F;
-}
-.ansi-cyan-intense-bg {
-  background-color: #258F8F;
-}
-.ansi-white-fg {
-  color: #C5C1B4;
-}
-.ansi-white-bg {
-  background-color: #C5C1B4;
-}
-.ansi-white-intense-fg {
-  color: #A1A6B2;
-}
-.ansi-white-intense-bg {
-  background-color: #A1A6B2;
-}
-.ansi-default-inverse-fg {
-  color: #FFFFFF;
-}
-.ansi-default-inverse-bg {
-  background-color: #000000;
-}
-.ansi-bold {
-  font-weight: bold;
-}
-.ansi-underline {
-  text-decoration: underline;
-}
-/* The following styles are deprecated an will be removed in a future version */
+/* CSS font colors for translated ANSI colors. */
 .ansibold {
   font-weight: bold;
-}
-.ansi-inverse {
-  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -200,20 +85,12 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  position: relative;
-  overflow: visible;
-}
-div.cell:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: transparent;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
 }
 div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -226,39 +103,27 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected,
-div.cell.selected.jupyter-soft-selected {
+div.cell.selected {
   border-color: #ababab;
-}
-div.cell.selected:before,
-div.cell.selected.jupyter-soft-selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #42A5F5;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
 }
 @media print {
-  div.cell.selected,
-  div.cell.selected.jupyter-soft-selected {
+  div.cell.selected {
     border-color: transparent;
   }
 }
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-}
-.edit_mode div.cell.selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -454,9 +319,7 @@ div.input_area &gt; div.highlight &gt; pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  /* Note that this should set vertical padding only, since CodeMirror assumes
-       that horizontal padding will be set on CodeMirror pre */
-  padding: 0.4em 0;
+  padding: 0.4em;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -466,24 +329,11 @@ div.input_area &gt; div.highlight &gt; pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
-    use .CodeMirror-lines for vertical */
-  padding: 0 0.4em;
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
   border: 0;
   border-radius: 0;
-}
-.CodeMirror-cursor {
-  border-left: 1.4px solid black;
-}
-@media screen and (min-width: 2138px) and (max-width: 4319px) {
-  .CodeMirror-cursor {
-    border-left: 2px solid black;
-  }
-}
-@media screen and (min-width: 4320px) {
-  .CodeMirror-cursor {
-    border-left: 4px solid black;
-  }
 }
 /*
 
@@ -731,9 +581,6 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
-div.output_area .mglyph &gt; img {
-  max-width: none;
-}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -772,7 +619,7 @@ div.output_area .mglyph &gt; img {
 }
 div.output_area pre {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -894,10 +741,6 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
-.rendered_html ul:not(.list-inline),
-.rendered_html ol:not(.list-inline) {
-  padding-left: 2em;
-}
 
 
 
@@ -914,24 +757,16 @@ div.output_unrecognized a:hover {
 }
 
 
-
-
-
 .rendered_html pre,
-
 
 
 
 .rendered_html tr,
 .rendered_html th,
 
+.rendered_html td,
 
-.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
+
 .rendered_html * + table {
   margin-top: 1em;
 }
@@ -947,11 +782,6 @@ div.output_unrecognized a:hover {
 
 .rendered_html img.unconfined,
 
-
-.rendered_html * + .alert {
-  margin-top: 1em;
-}
-[dir="rtl"] 
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -1002,15 +832,8 @@ h6:hover .anchor-link {
   display: none;
 }
 .text_cell.rendered 
-.text_cell.rendered .rendered_html tr,
-.text_cell.rendered .rendered_html th,
-.text_cell.rendered 
 .text_cell.unrendered .text_cell_render {
   display: none;
-}
-.text_cell .dropzone .input_area {
-  border: 2px dashed #bababa;
-  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -1149,7 +972,8 @@ h6:hover .anchor-link {
 .ansi-bold { font-weight: bold; }
 &lt;/style&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Gathering-Data"&gt;Gathering Data&lt;a class="anchor-link" href="#Gathering-Data"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The crucial part to my thesis is to have a viable data set to work with. In this particular case, the data set is tweets to run through a sentiment analyzer. Builing the data set has two parts:&lt;/p&gt;
 &lt;ol&gt;
@@ -1222,13 +1046,14 @@ h6:hover .anchor-link {
 &lt;span class="n"&gt;twitterStream&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;track&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;keywords&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-    &lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;The code is source from the tweepy documentation found. I worked off a baseline, and do any actual tweet manipulation-like insterting them into a database-in the on_data function. The data variable is a dictionary, which stores the tweet itself along with various other metrics&lt;/p&gt;
 &lt;p&gt;The keywords that the filter is listening for are in the keywords list. If the keywords are separated by commas, the filter will find tweets containing keyword1 OR keyword2. If they're separated by a space, the filter will find tweets with keyword1 AND keyword 2.&lt;/p&gt;
@@ -1307,13 +1132,14 @@ h6:hover .anchor-link {
 &lt;span class="n"&gt;twitterStream&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;filter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;track&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;keywords&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-    &lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;In some cases - hosting your database on a different server - the mongo database will be on the local host. Like I mentioned earlier, the database insertion happens in the on_data function.&lt;/p&gt;
 &lt;p&gt;The pymongo client is initialized with the mongo host. The line &lt;code&gt;db = client.miscdb&lt;/code&gt; declares the specific database for the tweets. If miscdb doesn't exist, the mongod deamon will create the database for you. Make sure that the database name here matches the database name outlined in MONGO_HOST. Last, the tweet is inserted into a collection &lt;code&gt;misc&lt;/code&gt;. Like with the database, if the collection doesn't exist, it's created.&lt;/p&gt;
@@ -1330,19 +1156,6 @@ h6:hover .anchor-link {
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
 &lt;/div&gt;
  
 
@@ -1380,124 +1193,9 @@ h6:hover .anchor-link {
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI escape sequences */
-/* The color values are a mix of
-   http://www.xcolors.net/dl/baskerville-ivorylight and
-   http://www.xcolors.net/dl/euphrasia */
-.ansi-black-fg {
-  color: #3E424D;
-}
-.ansi-black-bg {
-  background-color: #3E424D;
-}
-.ansi-black-intense-fg {
-  color: #282C36;
-}
-.ansi-black-intense-bg {
-  background-color: #282C36;
-}
-.ansi-red-fg {
-  color: #E75C58;
-}
-.ansi-red-bg {
-  background-color: #E75C58;
-}
-.ansi-red-intense-fg {
-  color: #B22B31;
-}
-.ansi-red-intense-bg {
-  background-color: #B22B31;
-}
-.ansi-green-fg {
-  color: #00A250;
-}
-.ansi-green-bg {
-  background-color: #00A250;
-}
-.ansi-green-intense-fg {
-  color: #007427;
-}
-.ansi-green-intense-bg {
-  background-color: #007427;
-}
-.ansi-yellow-fg {
-  color: #DDB62B;
-}
-.ansi-yellow-bg {
-  background-color: #DDB62B;
-}
-.ansi-yellow-intense-fg {
-  color: #B27D12;
-}
-.ansi-yellow-intense-bg {
-  background-color: #B27D12;
-}
-.ansi-blue-fg {
-  color: #208FFB;
-}
-.ansi-blue-bg {
-  background-color: #208FFB;
-}
-.ansi-blue-intense-fg {
-  color: #0065CA;
-}
-.ansi-blue-intense-bg {
-  background-color: #0065CA;
-}
-.ansi-magenta-fg {
-  color: #D160C4;
-}
-.ansi-magenta-bg {
-  background-color: #D160C4;
-}
-.ansi-magenta-intense-fg {
-  color: #A03196;
-}
-.ansi-magenta-intense-bg {
-  background-color: #A03196;
-}
-.ansi-cyan-fg {
-  color: #60C6C8;
-}
-.ansi-cyan-bg {
-  background-color: #60C6C8;
-}
-.ansi-cyan-intense-fg {
-  color: #258F8F;
-}
-.ansi-cyan-intense-bg {
-  background-color: #258F8F;
-}
-.ansi-white-fg {
-  color: #C5C1B4;
-}
-.ansi-white-bg {
-  background-color: #C5C1B4;
-}
-.ansi-white-intense-fg {
-  color: #A1A6B2;
-}
-.ansi-white-intense-bg {
-  background-color: #A1A6B2;
-}
-.ansi-default-inverse-fg {
-  color: #FFFFFF;
-}
-.ansi-default-inverse-bg {
-  background-color: #000000;
-}
-.ansi-bold {
-  font-weight: bold;
-}
-.ansi-underline {
-  text-decoration: underline;
-}
-/* The following styles are deprecated an will be removed in a future version */
+/* CSS font colors for translated ANSI colors. */
 .ansibold {
   font-weight: bold;
-}
-.ansi-inverse {
-  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -1576,20 +1274,12 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  position: relative;
-  overflow: visible;
-}
-div.cell:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: transparent;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
 }
 div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -1602,39 +1292,27 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected,
-div.cell.selected.jupyter-soft-selected {
+div.cell.selected {
   border-color: #ababab;
-}
-div.cell.selected:before,
-div.cell.selected.jupyter-soft-selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #42A5F5;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
 }
 @media print {
-  div.cell.selected,
-  div.cell.selected.jupyter-soft-selected {
+  div.cell.selected {
     border-color: transparent;
   }
 }
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-}
-.edit_mode div.cell.selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -1830,9 +1508,7 @@ div.input_area &gt; div.highlight &gt; pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  /* Note that this should set vertical padding only, since CodeMirror assumes
-       that horizontal padding will be set on CodeMirror pre */
-  padding: 0.4em 0;
+  padding: 0.4em;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -1842,24 +1518,11 @@ div.input_area &gt; div.highlight &gt; pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
-    use .CodeMirror-lines for vertical */
-  padding: 0 0.4em;
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
   border: 0;
   border-radius: 0;
-}
-.CodeMirror-cursor {
-  border-left: 1.4px solid black;
-}
-@media screen and (min-width: 2138px) and (max-width: 4319px) {
-  .CodeMirror-cursor {
-    border-left: 2px solid black;
-  }
-}
-@media screen and (min-width: 4320px) {
-  .CodeMirror-cursor {
-    border-left: 4px solid black;
-  }
 }
 /*
 
@@ -2107,9 +1770,6 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
-div.output_area .mglyph &gt; img {
-  max-width: none;
-}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -2148,7 +1808,7 @@ div.output_area .mglyph &gt; img {
 }
 div.output_area pre {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -2270,10 +1930,6 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
-.rendered_html ul:not(.list-inline),
-.rendered_html ol:not(.list-inline) {
-  padding-left: 2em;
-}
 
 
 
@@ -2290,24 +1946,16 @@ div.output_unrecognized a:hover {
 }
 
 
-
-
-
 .rendered_html pre,
-
 
 
 
 .rendered_html tr,
 .rendered_html th,
 
+.rendered_html td,
 
-.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
+
 .rendered_html * + table {
   margin-top: 1em;
 }
@@ -2323,11 +1971,6 @@ div.output_unrecognized a:hover {
 
 .rendered_html img.unconfined,
 
-
-.rendered_html * + .alert {
-  margin-top: 1em;
-}
-[dir="rtl"] 
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -2378,15 +2021,8 @@ h6:hover .anchor-link {
   display: none;
 }
 .text_cell.rendered 
-.text_cell.rendered .rendered_html tr,
-.text_cell.rendered .rendered_html th,
-.text_cell.rendered 
 .text_cell.unrendered .text_cell_render {
   display: none;
-}
-.text_cell .dropzone .input_area {
-  border: 2px dashed #bababa;
-  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -2525,7 +2161,8 @@ h6:hover .anchor-link {
 .ansi-bold { font-weight: bold; }
 &lt;/style&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="The-Senior-Project"&gt;The Senior Project&lt;a class="anchor-link" href="#The-Senior-Project"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The senior project is the culmination of my undergraduate career. It's a year-long exploration into a topic or idea, and gives students a taste of undergraduate research. I personally, am exploring the relationship twitter sentiment and voting trends:&lt;/p&gt;
 &lt;h1 id="Political-Polling"&gt;Political Polling&lt;a class="anchor-link" href="#Political-Polling"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Polling is a key part of every political campaign. The basic intent is to find out how many people prefer a certain candidate. More complex polls ask questions hoping to profile the voter. Candidates use polls and the profiles polls generate to make key campaign decisions.&lt;/p&gt;
@@ -2542,7 +2179,7 @@ h6:hover .anchor-link {
 &lt;li&gt;Using sentiment and keywords to draw correlation with voting tendencies&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The data collection process:
-&lt;img src = "data_collection.png"&gt;
+&amp;lt;img src = "data_collection.png"&amp;gt;
 There are two ways to access tweets by people. The first is to “scrape” twitter.com, which means to access the website and physically copy the tweets seen. It’s a method that’s inefficient and tiresome. The second is to use the Twitter API and build a stream that listens to tweets with certain keywords. The stream will load tweets into a database and create a permanent data set test and analyze throughout the year.&lt;/p&gt;
 &lt;p&gt;The midterm elections are on November 6th and the window to collect tweets is small. It’s important to build a scalable pipeline to collect tweets by October 1st, and then collect a month of data before the elections themselves.&lt;/p&gt;
 &lt;p&gt;Sentiment analysis is a machine learning process that picks out keywords to read intent behind a statement. Each statement can be evaluated to have a negative, neutral, or positive sentiment.&lt;/p&gt;
@@ -2551,19 +2188,6 @@ There are two ways to access tweets by people. The first is to “scrape” twit
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In&amp;nbsp;[&amp;nbsp;]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
 &lt;/div&gt;
  
 
@@ -2601,124 +2225,9 @@ There are two ways to access tweets by people. The first is to “scrape” twit
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI escape sequences */
-/* The color values are a mix of
-   http://www.xcolors.net/dl/baskerville-ivorylight and
-   http://www.xcolors.net/dl/euphrasia */
-.ansi-black-fg {
-  color: #3E424D;
-}
-.ansi-black-bg {
-  background-color: #3E424D;
-}
-.ansi-black-intense-fg {
-  color: #282C36;
-}
-.ansi-black-intense-bg {
-  background-color: #282C36;
-}
-.ansi-red-fg {
-  color: #E75C58;
-}
-.ansi-red-bg {
-  background-color: #E75C58;
-}
-.ansi-red-intense-fg {
-  color: #B22B31;
-}
-.ansi-red-intense-bg {
-  background-color: #B22B31;
-}
-.ansi-green-fg {
-  color: #00A250;
-}
-.ansi-green-bg {
-  background-color: #00A250;
-}
-.ansi-green-intense-fg {
-  color: #007427;
-}
-.ansi-green-intense-bg {
-  background-color: #007427;
-}
-.ansi-yellow-fg {
-  color: #DDB62B;
-}
-.ansi-yellow-bg {
-  background-color: #DDB62B;
-}
-.ansi-yellow-intense-fg {
-  color: #B27D12;
-}
-.ansi-yellow-intense-bg {
-  background-color: #B27D12;
-}
-.ansi-blue-fg {
-  color: #208FFB;
-}
-.ansi-blue-bg {
-  background-color: #208FFB;
-}
-.ansi-blue-intense-fg {
-  color: #0065CA;
-}
-.ansi-blue-intense-bg {
-  background-color: #0065CA;
-}
-.ansi-magenta-fg {
-  color: #D160C4;
-}
-.ansi-magenta-bg {
-  background-color: #D160C4;
-}
-.ansi-magenta-intense-fg {
-  color: #A03196;
-}
-.ansi-magenta-intense-bg {
-  background-color: #A03196;
-}
-.ansi-cyan-fg {
-  color: #60C6C8;
-}
-.ansi-cyan-bg {
-  background-color: #60C6C8;
-}
-.ansi-cyan-intense-fg {
-  color: #258F8F;
-}
-.ansi-cyan-intense-bg {
-  background-color: #258F8F;
-}
-.ansi-white-fg {
-  color: #C5C1B4;
-}
-.ansi-white-bg {
-  background-color: #C5C1B4;
-}
-.ansi-white-intense-fg {
-  color: #A1A6B2;
-}
-.ansi-white-intense-bg {
-  background-color: #A1A6B2;
-}
-.ansi-default-inverse-fg {
-  color: #FFFFFF;
-}
-.ansi-default-inverse-bg {
-  background-color: #000000;
-}
-.ansi-bold {
-  font-weight: bold;
-}
-.ansi-underline {
-  text-decoration: underline;
-}
-/* The following styles are deprecated an will be removed in a future version */
+/* CSS font colors for translated ANSI colors. */
 .ansibold {
   font-weight: bold;
-}
-.ansi-inverse {
-  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -2797,20 +2306,12 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  position: relative;
-  overflow: visible;
-}
-div.cell:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: transparent;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
 }
 div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -2823,39 +2324,27 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected,
-div.cell.selected.jupyter-soft-selected {
+div.cell.selected {
   border-color: #ababab;
-}
-div.cell.selected:before,
-div.cell.selected.jupyter-soft-selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #42A5F5;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
 }
 @media print {
-  div.cell.selected,
-  div.cell.selected.jupyter-soft-selected {
+  div.cell.selected {
     border-color: transparent;
   }
 }
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-}
-.edit_mode div.cell.selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -3051,9 +2540,7 @@ div.input_area &gt; div.highlight &gt; pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  /* Note that this should set vertical padding only, since CodeMirror assumes
-       that horizontal padding will be set on CodeMirror pre */
-  padding: 0.4em 0;
+  padding: 0.4em;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -3063,24 +2550,11 @@ div.input_area &gt; div.highlight &gt; pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
-    use .CodeMirror-lines for vertical */
-  padding: 0 0.4em;
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
   border: 0;
   border-radius: 0;
-}
-.CodeMirror-cursor {
-  border-left: 1.4px solid black;
-}
-@media screen and (min-width: 2138px) and (max-width: 4319px) {
-  .CodeMirror-cursor {
-    border-left: 2px solid black;
-  }
-}
-@media screen and (min-width: 4320px) {
-  .CodeMirror-cursor {
-    border-left: 4px solid black;
-  }
 }
 /*
 
@@ -3328,9 +2802,6 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
-div.output_area .mglyph &gt; img {
-  max-width: none;
-}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -3369,7 +2840,7 @@ div.output_area .mglyph &gt; img {
 }
 div.output_area pre {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -3491,10 +2962,6 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
-.rendered_html ul:not(.list-inline),
-.rendered_html ol:not(.list-inline) {
-  padding-left: 2em;
-}
 
 
 
@@ -3511,24 +2978,16 @@ div.output_unrecognized a:hover {
 }
 
 
-
-
-
 .rendered_html pre,
-
 
 
 
 .rendered_html tr,
 .rendered_html th,
 
+.rendered_html td,
 
-.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
+
 .rendered_html * + table {
   margin-top: 1em;
 }
@@ -3544,11 +3003,6 @@ div.output_unrecognized a:hover {
 
 .rendered_html img.unconfined,
 
-
-.rendered_html * + .alert {
-  margin-top: 1em;
-}
-[dir="rtl"] 
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -3599,15 +3053,8 @@ h6:hover .anchor-link {
   display: none;
 }
 .text_cell.rendered 
-.text_cell.rendered .rendered_html tr,
-.text_cell.rendered .rendered_html th,
-.text_cell.rendered 
 .text_cell.unrendered .text_cell_render {
   display: none;
-}
-.text_cell .dropzone .input_area {
-  border: 2px dashed #bababa;
-  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -3746,7 +3193,8 @@ h6:hover .anchor-link {
 .ansi-bold { font-weight: bold; }
 &lt;/style&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Portfolio"&gt;Portfolio&lt;a class="anchor-link" href="#Portfolio"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Over the last three summers between courses, internships, and research experiences, I've assembled a portfolio of writings and projects.&lt;/p&gt;
 &lt;h2 id="Published-Writings/Visuals"&gt;Published Writings/Visuals&lt;a class="anchor-link" href="#Published-Writings/Visuals"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;h3 id="Alpaca"&gt;Alpaca&lt;a class="anchor-link" href="#Alpaca"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;In summer 2018, I worked for &lt;a href="https://aplaca.markets"&gt;Alpaca&lt;/a&gt;, a fintech startup in San Mateo. I worked on building a simple robo advisor. Alongside, I started writing through the Alpaca account on my project as well as about algo trading in general.&lt;/p&gt;
@@ -3815,124 +3263,9 @@ h6:hover .anchor-link {
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI escape sequences */
-/* The color values are a mix of
-   http://www.xcolors.net/dl/baskerville-ivorylight and
-   http://www.xcolors.net/dl/euphrasia */
-.ansi-black-fg {
-  color: #3E424D;
-}
-.ansi-black-bg {
-  background-color: #3E424D;
-}
-.ansi-black-intense-fg {
-  color: #282C36;
-}
-.ansi-black-intense-bg {
-  background-color: #282C36;
-}
-.ansi-red-fg {
-  color: #E75C58;
-}
-.ansi-red-bg {
-  background-color: #E75C58;
-}
-.ansi-red-intense-fg {
-  color: #B22B31;
-}
-.ansi-red-intense-bg {
-  background-color: #B22B31;
-}
-.ansi-green-fg {
-  color: #00A250;
-}
-.ansi-green-bg {
-  background-color: #00A250;
-}
-.ansi-green-intense-fg {
-  color: #007427;
-}
-.ansi-green-intense-bg {
-  background-color: #007427;
-}
-.ansi-yellow-fg {
-  color: #DDB62B;
-}
-.ansi-yellow-bg {
-  background-color: #DDB62B;
-}
-.ansi-yellow-intense-fg {
-  color: #B27D12;
-}
-.ansi-yellow-intense-bg {
-  background-color: #B27D12;
-}
-.ansi-blue-fg {
-  color: #208FFB;
-}
-.ansi-blue-bg {
-  background-color: #208FFB;
-}
-.ansi-blue-intense-fg {
-  color: #0065CA;
-}
-.ansi-blue-intense-bg {
-  background-color: #0065CA;
-}
-.ansi-magenta-fg {
-  color: #D160C4;
-}
-.ansi-magenta-bg {
-  background-color: #D160C4;
-}
-.ansi-magenta-intense-fg {
-  color: #A03196;
-}
-.ansi-magenta-intense-bg {
-  background-color: #A03196;
-}
-.ansi-cyan-fg {
-  color: #60C6C8;
-}
-.ansi-cyan-bg {
-  background-color: #60C6C8;
-}
-.ansi-cyan-intense-fg {
-  color: #258F8F;
-}
-.ansi-cyan-intense-bg {
-  background-color: #258F8F;
-}
-.ansi-white-fg {
-  color: #C5C1B4;
-}
-.ansi-white-bg {
-  background-color: #C5C1B4;
-}
-.ansi-white-intense-fg {
-  color: #A1A6B2;
-}
-.ansi-white-intense-bg {
-  background-color: #A1A6B2;
-}
-.ansi-default-inverse-fg {
-  color: #FFFFFF;
-}
-.ansi-default-inverse-bg {
-  background-color: #000000;
-}
-.ansi-bold {
-  font-weight: bold;
-}
-.ansi-underline {
-  text-decoration: underline;
-}
-/* The following styles are deprecated an will be removed in a future version */
+/* CSS font colors for translated ANSI colors. */
 .ansibold {
   font-weight: bold;
-}
-.ansi-inverse {
-  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -4011,20 +3344,12 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  position: relative;
-  overflow: visible;
-}
-div.cell:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: transparent;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
 }
 div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -4037,39 +3362,27 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected,
-div.cell.selected.jupyter-soft-selected {
+div.cell.selected {
   border-color: #ababab;
-}
-div.cell.selected:before,
-div.cell.selected.jupyter-soft-selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #42A5F5;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
 }
 @media print {
-  div.cell.selected,
-  div.cell.selected.jupyter-soft-selected {
+  div.cell.selected {
     border-color: transparent;
   }
 }
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-}
-.edit_mode div.cell.selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -4265,9 +3578,7 @@ div.input_area &gt; div.highlight &gt; pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  /* Note that this should set vertical padding only, since CodeMirror assumes
-       that horizontal padding will be set on CodeMirror pre */
-  padding: 0.4em 0;
+  padding: 0.4em;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -4277,24 +3588,11 @@ div.input_area &gt; div.highlight &gt; pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
-    use .CodeMirror-lines for vertical */
-  padding: 0 0.4em;
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
   border: 0;
   border-radius: 0;
-}
-.CodeMirror-cursor {
-  border-left: 1.4px solid black;
-}
-@media screen and (min-width: 2138px) and (max-width: 4319px) {
-  .CodeMirror-cursor {
-    border-left: 2px solid black;
-  }
-}
-@media screen and (min-width: 4320px) {
-  .CodeMirror-cursor {
-    border-left: 4px solid black;
-  }
 }
 /*
 
@@ -4542,9 +3840,6 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
-div.output_area .mglyph &gt; img {
-  max-width: none;
-}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -4583,7 +3878,7 @@ div.output_area .mglyph &gt; img {
 }
 div.output_area pre {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -4705,10 +4000,6 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
-.rendered_html ul:not(.list-inline),
-.rendered_html ol:not(.list-inline) {
-  padding-left: 2em;
-}
 
 
 
@@ -4725,24 +4016,16 @@ div.output_unrecognized a:hover {
 }
 
 
-
-
-
 .rendered_html pre,
-
 
 
 
 .rendered_html tr,
 .rendered_html th,
 
+.rendered_html td,
 
-.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
+
 .rendered_html * + table {
   margin-top: 1em;
 }
@@ -4758,11 +4041,6 @@ div.output_unrecognized a:hover {
 
 .rendered_html img.unconfined,
 
-
-.rendered_html * + .alert {
-  margin-top: 1em;
-}
-[dir="rtl"] 
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -4813,15 +4091,8 @@ h6:hover .anchor-link {
   display: none;
 }
 .text_cell.rendered 
-.text_cell.rendered .rendered_html tr,
-.text_cell.rendered .rendered_html th,
-.text_cell.rendered 
 .text_cell.unrendered .text_cell_render {
   display: none;
-}
-.text_cell .dropzone .input_area {
-  border: 2px dashed #bababa;
-  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -4960,7 +4231,8 @@ h6:hover .anchor-link {
 .ansi-bold { font-weight: bold; }
 &lt;/style&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Welcome"&gt;Welcome&lt;a class="anchor-link" href="#Welcome"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Hello, and welcome to by blog! I'm Rao Vinnakota, and I'm a senior studying applied Mathematics at Bard College. This blog is meant to serve as a portfolio, as well as a sounding board for my various projects. Writing about my work was an interesting lesson I learned during my internship this summer. It actually got me published in HackerNoon several times, which was very exciting. I'm hoping to continue with that&lt;/p&gt;
 &lt;h1 id="Content"&gt;Content&lt;a class="anchor-link" href="#Content"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Most content is generally going to be one of the following:&lt;/p&gt;

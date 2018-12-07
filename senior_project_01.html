@@ -1,167 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-        <title>Senior Project: Gathering Data</title>
-        <link rel="stylesheet" href="https://raovinnakota.github.io/theme/css/main.css" />
-        <link href="https://raovinnakota.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Rao Vinnakota's Blog Atom Feed" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>Senior Project: Gathering Data - Rao Vinnakota's Blog</title>
+    <meta charset="utf-8" />
+    <link href="http://fonts.googleapis.com/css?family=Arimo:400,700|Inika" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://raovinnakota.github.io/theme/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="https://raovinnakota.github.io/theme/pastie.css" />
+    <link href="https://raovinnakota.github.io/" type="application/atom+xml" rel="alternate" title="Rao Vinnakota's Blog Atom Feed" />
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-</head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="https://raovinnakota.github.io/">Rao Vinnakota's Blog </a></h1>
-                <nav><ul>
-                    <li><a href="https://raovinnakota.github.io/category/about-me.html">About Me</a></li>
-                    <li class="active"><a href="https://raovinnakota.github.io/category/blog.html">blog</a></li>
-                    <li><a href="https://raovinnakota.github.io/category/portfolio.html">Portfolio</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="https://raovinnakota.github.io/senior_project_01.html" rel="bookmark"
-           title="Permalink to Senior Project: Gathering Data">Senior Project: Gathering Data</a></h1>
-    </header>
+  </head>
 
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-11-18T17:00:00-08:00">
-                Published: Sun 18 November 2018
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://raovinnakota.github.io/author/rao-vinnakota.html">Rao Vinnakota</a>
-        </address>
-<p>In <a href="https://raovinnakota.github.io/category/blog.html">blog</a>.</p>
-<p>tags: <a href="https://raovinnakota.github.io/tag/python.html">python</a> <a href="https://raovinnakota.github.io/tag/blog.html">blog</a> <a href="https://raovinnakota.github.io/tag/senior-project.html">Senior Project</a> </p>
-</footer><!-- /.post-info -->      <style type="text/css">/*!
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span8">
+<div id="content">
+    <div class="header">
+        <h1>Senior Project: Gathering Data</h1>
+    </div>
+    <p class="meta"><small><span><a href="https://raovinnakota.github.io/author/rao-vinnakota/">Rao Vinnakota</a> - </span><span>Sun 18 November 2018</span> - <span class="tags"><a href="/tag/python/">python</a>, <a href="/tag/blog/">blog</a>, <a href="/tag/Senior Project/">Senior Project</a></span></small></p>
+        <div class="entry-content">
+        <style type="text/css">/*!
 *
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI escape sequences */
-/* The color values are a mix of
-   http://www.xcolors.net/dl/baskerville-ivorylight and
-   http://www.xcolors.net/dl/euphrasia */
-.ansi-black-fg {
-  color: #3E424D;
-}
-.ansi-black-bg {
-  background-color: #3E424D;
-}
-.ansi-black-intense-fg {
-  color: #282C36;
-}
-.ansi-black-intense-bg {
-  background-color: #282C36;
-}
-.ansi-red-fg {
-  color: #E75C58;
-}
-.ansi-red-bg {
-  background-color: #E75C58;
-}
-.ansi-red-intense-fg {
-  color: #B22B31;
-}
-.ansi-red-intense-bg {
-  background-color: #B22B31;
-}
-.ansi-green-fg {
-  color: #00A250;
-}
-.ansi-green-bg {
-  background-color: #00A250;
-}
-.ansi-green-intense-fg {
-  color: #007427;
-}
-.ansi-green-intense-bg {
-  background-color: #007427;
-}
-.ansi-yellow-fg {
-  color: #DDB62B;
-}
-.ansi-yellow-bg {
-  background-color: #DDB62B;
-}
-.ansi-yellow-intense-fg {
-  color: #B27D12;
-}
-.ansi-yellow-intense-bg {
-  background-color: #B27D12;
-}
-.ansi-blue-fg {
-  color: #208FFB;
-}
-.ansi-blue-bg {
-  background-color: #208FFB;
-}
-.ansi-blue-intense-fg {
-  color: #0065CA;
-}
-.ansi-blue-intense-bg {
-  background-color: #0065CA;
-}
-.ansi-magenta-fg {
-  color: #D160C4;
-}
-.ansi-magenta-bg {
-  background-color: #D160C4;
-}
-.ansi-magenta-intense-fg {
-  color: #A03196;
-}
-.ansi-magenta-intense-bg {
-  background-color: #A03196;
-}
-.ansi-cyan-fg {
-  color: #60C6C8;
-}
-.ansi-cyan-bg {
-  background-color: #60C6C8;
-}
-.ansi-cyan-intense-fg {
-  color: #258F8F;
-}
-.ansi-cyan-intense-bg {
-  background-color: #258F8F;
-}
-.ansi-white-fg {
-  color: #C5C1B4;
-}
-.ansi-white-bg {
-  background-color: #C5C1B4;
-}
-.ansi-white-intense-fg {
-  color: #A1A6B2;
-}
-.ansi-white-intense-bg {
-  background-color: #A1A6B2;
-}
-.ansi-default-inverse-fg {
-  color: #FFFFFF;
-}
-.ansi-default-inverse-bg {
-  background-color: #000000;
-}
-.ansi-bold {
-  font-weight: bold;
-}
-.ansi-underline {
-  text-decoration: underline;
-}
-/* The following styles are deprecated an will be removed in a future version */
+/* CSS font colors for translated ANSI colors. */
 .ansibold {
   font-weight: bold;
-}
-.ansi-inverse {
-  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -240,20 +108,12 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  position: relative;
-  overflow: visible;
-}
-div.cell:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: transparent;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
 }
 div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -266,39 +126,27 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected,
-div.cell.selected.jupyter-soft-selected {
+div.cell.selected {
   border-color: #ababab;
-}
-div.cell.selected:before,
-div.cell.selected.jupyter-soft-selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #42A5F5;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
 }
 @media print {
-  div.cell.selected,
-  div.cell.selected.jupyter-soft-selected {
+  div.cell.selected {
     border-color: transparent;
   }
 }
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-}
-.edit_mode div.cell.selected:before {
-  position: absolute;
-  display: block;
-  top: -1px;
-  left: -1px;
-  width: 5px;
-  height: calc(100% +  2px);
-  content: '';
-  background: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -494,9 +342,7 @@ div.input_area > div.highlight > pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  /* Note that this should set vertical padding only, since CodeMirror assumes
-       that horizontal padding will be set on CodeMirror pre */
-  padding: 0.4em 0;
+  padding: 0.4em;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -506,24 +352,11 @@ div.input_area > div.highlight > pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
-    use .CodeMirror-lines for vertical */
-  padding: 0 0.4em;
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
   border: 0;
   border-radius: 0;
-}
-.CodeMirror-cursor {
-  border-left: 1.4px solid black;
-}
-@media screen and (min-width: 2138px) and (max-width: 4319px) {
-  .CodeMirror-cursor {
-    border-left: 2px solid black;
-  }
-}
-@media screen and (min-width: 4320px) {
-  .CodeMirror-cursor {
-    border-left: 4px solid black;
-  }
 }
 /*
 
@@ -771,9 +604,6 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
-div.output_area .mglyph > img {
-  max-width: none;
-}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -812,7 +642,7 @@ div.output_area .mglyph > img {
 }
 div.output_area pre {
   margin: 0;
-  padding: 1px 0 1px 0;
+  padding: 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -934,10 +764,6 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
-.rendered_html ul:not(.list-inline),
-.rendered_html ol:not(.list-inline) {
-  padding-left: 2em;
-}
 
 
 
@@ -954,24 +780,16 @@ div.output_unrecognized a:hover {
 }
 
 
-
-
-
 .rendered_html pre,
-
 
 
 
 .rendered_html tr,
 .rendered_html th,
 
+.rendered_html td,
 
-.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
+
 .rendered_html * + table {
   margin-top: 1em;
 }
@@ -987,11 +805,6 @@ div.output_unrecognized a:hover {
 
 .rendered_html img.unconfined,
 
-
-.rendered_html * + .alert {
-  margin-top: 1em;
-}
-[dir="rtl"] 
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -1042,15 +855,8 @@ h6:hover .anchor-link {
   display: none;
 }
 .text_cell.rendered 
-.text_cell.rendered .rendered_html tr,
-.text_cell.rendered .rendered_html th,
-.text_cell.rendered 
 .text_cell.unrendered .text_cell_render {
   display: none;
-}
-.text_cell .dropzone .input_area {
-  border: 2px dashed #bababa;
-  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -1189,7 +995,8 @@ h6:hover .anchor-link {
 .ansi-bold { font-weight: bold; }
 </style>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Gathering-Data">Gathering Data<a class="anchor-link" href="#Gathering-Data">&#182;</a></h1><p>The crucial part to my thesis is to have a viable data set to work with. In this particular case, the data set is tweets to run through a sentiment analyzer. Builing the data set has two parts:</p>
 <ol>
@@ -1262,13 +1069,14 @@ h6:hover .anchor-link {
 <span class="n">twitterStream</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">keywords</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The code is source from the tweepy documentation found. I worked off a baseline, and do any actual tweet manipulation-like insterting them into a database-in the on_data function. The data variable is a dictionary, which stores the tweet itself along with various other metrics</p>
 <p>The keywords that the filter is listening for are in the keywords list. If the keywords are separated by commas, the filter will find tweets containing keyword1 OR keyword2. If they're separated by a space, the filter will find tweets with keyword1 AND keyword 2.</p>
@@ -1347,13 +1155,14 @@ h6:hover .anchor-link {
 <span class="n">twitterStream</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">track</span><span class="o">=</span><span class="n">keywords</span><span class="p">)</span>
 </pre></div>
 
-    </div>
+</div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
+</div>
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In some cases - hosting your database on a different server - the mongo database will be on the local host. Like I mentioned earlier, the database insertion happens in the on_data function.</p>
 <p>The pymongo client is initialized with the mongo host. The line <code>db = client.miscdb</code> declares the specific database for the tweets. If miscdb doesn't exist, the mongod deamon will create the database for you. Make sure that the database name here matches the database name outlined in MONGO_HOST. Last, the tweet is inserted into a collection <code>misc</code>. Like with the database, if the collection doesn't exist, it's created.</p>
@@ -1370,19 +1179,6 @@ h6:hover .anchor-link {
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
  
 
@@ -1416,38 +1212,37 @@ h6:hover .anchor-link {
 }
 </script>
 
-    </div><!-- /.entry-content -->
+        </div><!-- /.entry-content -->
+</div>
+        </div>
+        <div class="span3 offset1">
+          <div class="well">
+            <ul class="nav nav-list">
+              <li class="nav-header">Blog</li>
+              <li ><a href="https://raovinnakota.github.io">Index</a></li>
+              <li ><a href="https://raovinnakota.github.io/tags/">Tags</a></li>
+              <li ><a href="https://raovinnakota.github.io/archives/">Archiv</a></li>
+              <li class="nav-header">Links</li>
+              <li><a href="http://getpelican.com/">Pelican</a></li>
+              <li><a href="http://python.org/">Python.org</a></li>
+              <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+              <li><a href="#">You can modify those links in your config file</a></li>
+            </ul>
+          </div><!-- /#menu -->
+        </div>
+      </div>
 
-  </article>
-</section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="https://raovinnakota.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+      <hr />
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+      <div class="row">
+        <div class="span12">
+          <div id="about">
+            <p>Proudly powered by <a href="http://twitter.github.com/bootstrap/">bootstrap</a>, <a href="http://docs.notmyidea.org/alexis/pelican/">pelican</a>, <a href="http://python.org">python</a> and <a href="http://www.julo.ch/about/">Alex</a>!</p>
+          </div><!-- /#about -->
+        </div><!-- /#contentinfo -->
+      </div>
+    </div>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
-</body>
+  </body>
 </html>
