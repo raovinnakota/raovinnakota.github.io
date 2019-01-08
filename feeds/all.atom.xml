@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Rao Vinnakota's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2018-12-01T14:33:00-08:00</updated><entry><title>Senior Project: Gathering Data</title><link href="/senior_project_02.html" rel="alternate"></link><published>2018-12-01T14:33:00-08:00</published><updated>2018-12-01T14:33:00-08:00</updated><author><name>Rao Vinnakota</name></author><id>tag:,2018-12-01:senior_project_02.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Rao Vinnakota's Blog</title><link href="raovinnakota.github.io/" rel="alternate"></link><link href="raovinnakota.github.io/feeds/all.atom.xml" rel="self"></link><id>raovinnakota.github.io/</id><updated>2018-12-01T14:33:00-08:00</updated><entry><title>Senior Project: Gathering Data</title><link href="raovinnakota.github.io/senior_project_02.html" rel="alternate"></link><published>2018-12-01T14:33:00-08:00</published><updated>2018-12-01T14:33:00-08:00</updated><author><name>Rao Vinnakota</name></author><id>tag:,2018-12-01:raovinnakota.github.io/senior_project_02.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1166,7 +1166,16 @@ h6:hover .anchor-link {
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The final results had the Republicans affirming their control over the Senate and winning two extra seats splitting the Senate 53-47. Specific races I'm interested in the tweets for are&lt;/p&gt;
+&lt;p&gt;The final results had the Republicans affirming their control over the Senate and winning two extra seats splitting the Senate 53-47:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Of the three Republican Senators that retired the new Senators were split 2-1 favoring Republicans. Krysten Sinema was able to flip the seat formerly occupied by Jeff Flake.&lt;/li&gt;
+&lt;li&gt;Every seat that the Cook Political Report rated "safe" was held by the incumbent party.&lt;/li&gt;
+&lt;li&gt;Of the 15 unsafe seats - which included Arizona(Flake):&lt;ul&gt;
+&lt;li&gt;6 seats were flipped in a 4-2 split favoring Republicans&lt;/li&gt;
+&lt;li&gt;3 of those flipped seats were tossups in a 2-1 split that favored Republicans &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id="The-House"&gt;The House&lt;a class="anchor-link" href="#The-House"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The Democrats were favored to take back the House as early as last January. All 435 seats were up for election, and I chose to follow the 29 races that the Cook Political Report reported as tossups.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;All of the 29 incumbents were seeking re-election. The split was 28-1 favoring Democrats&lt;/li&gt;
@@ -1209,7 +1218,7 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="blog"></category><category term="Senior Project"></category></entry><entry><title>Senior Project: Gathering Data</title><link href="/senior_project_01.html" rel="alternate"></link><published>2018-11-18T17:00:00-08:00</published><updated>2018-11-18T17:00:00-08:00</updated><author><name>Rao Vinnakota</name></author><id>tag:,2018-11-18:senior_project_01.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="python"></category><category term="blog"></category><category term="Senior Project"></category></entry><entry><title>Senior Project: Gathering Data</title><link href="raovinnakota.github.io/senior_project_01.html" rel="alternate"></link><published>2018-11-18T17:00:00-08:00</published><updated>2018-11-18T17:00:00-08:00</updated><author><name>Rao Vinnakota</name></author><id>tag:,2018-11-18:raovinnakota.github.io/senior_project_01.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2573,7 +2582,7 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="blog"></category><category term="Senior Project"></category></entry><entry><title>Senior Project Overview</title><link href="/senior_project_00.html" rel="alternate"></link><published>2018-11-13T11:03:00-08:00</published><updated>2018-11-13T11:03:00-08:00</updated><author><name>Rao Vinnakota</name></author><id>tag:,2018-11-13:senior_project_00.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="python"></category><category term="blog"></category><category term="Senior Project"></category></entry><entry><title>Senior Project Overview</title><link href="raovinnakota.github.io/senior_project_00.html" rel="alternate"></link><published>2018-11-13T11:03:00-08:00</published><updated>2018-11-13T11:03:00-08:00</updated><author><name>Rao Vinnakota</name></author><id>tag:,2018-11-13:raovinnakota.github.io/senior_project_00.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -3794,7 +3803,7 @@ There are two ways to access tweets by people. The first is to “scrape” twit
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="blog"></category><category term="Senior Project"></category></entry><entry><title>Rao Vinnakota's Portfolio</title><link href="/portfolio.html" rel="alternate"></link><published>2018-11-11T16:05:00-08:00</published><updated>2018-11-11T16:05:00-08:00</updated><author><name>Rao Vinnakota</name></author><id>tag:,2018-11-11:portfolio.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="python"></category><category term="blog"></category><category term="Senior Project"></category></entry><entry><title>Rao Vinnakota's Portfolio</title><link href="raovinnakota.github.io/portfolio.html" rel="alternate"></link><published>2018-11-11T16:05:00-08:00</published><updated>2018-11-11T16:05:00-08:00</updated><author><name>Rao Vinnakota</name></author><id>tag:,2018-11-11:raovinnakota.github.io/portfolio.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -5008,7 +5017,7 @@ h6:hover .anchor-link {
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="portfolio"></category></entry><entry><title>Welcome!</title><link href="/welcome.html" rel="alternate"></link><published>2018-11-09T20:00:00-08:00</published><updated>2018-11-09T20:00:00-08:00</updated><author><name>Rao Vinnakota</name></author><id>tag:,2018-11-09:welcome.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="portfolio"></category></entry><entry><title>Welcome!</title><link href="raovinnakota.github.io/welcome.html" rel="alternate"></link><published>2018-11-09T20:00:00-08:00</published><updated>2018-11-09T20:00:00-08:00</updated><author><name>Rao Vinnakota</name></author><id>tag:,2018-11-09:raovinnakota.github.io/welcome.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *

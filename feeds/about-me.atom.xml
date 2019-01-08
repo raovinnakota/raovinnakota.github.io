@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Rao Vinnakota's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/about-me.atom.xml" rel="self"></link><id>/</id><updated>2018-11-09T20:00:00-08:00</updated><entry><title>Welcome!</title><link href="/welcome.html" rel="alternate"></link><published>2018-11-09T20:00:00-08:00</published><updated>2018-11-09T20:00:00-08:00</updated><author><name>Rao Vinnakota</name></author><id>tag:,2018-11-09:welcome.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Rao Vinnakota's Blog</title><link href="raovinnakota.github.io/" rel="alternate"></link><link href="raovinnakota.github.io/feeds/about-me.atom.xml" rel="self"></link><id>raovinnakota.github.io/</id><updated>2018-11-09T20:00:00-08:00</updated><entry><title>Welcome!</title><link href="raovinnakota.github.io/welcome.html" rel="alternate"></link><published>2018-11-09T20:00:00-08:00</published><updated>2018-11-09T20:00:00-08:00</updated><author><name>Rao Vinnakota</name></author><id>tag:,2018-11-09:raovinnakota.github.io/welcome.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
